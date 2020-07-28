@@ -1,0 +1,31 @@
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    z-index: 1;
+
+    /*add transition to anything on navbar*/
+    transition: all 0.5s ease-in;
+}
+
+.nav__black {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.nav__logo {
+    position: fixed;
+    left: 20px;
+    width: 80px;
+    object-fit: contain;
+}
+
+.nav__avatar {
+    position: fixed;
+    right: 20px;
+    width: 30px;
+    object-fit: contain;
+}
