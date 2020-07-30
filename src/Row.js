@@ -43,13 +43,13 @@ function Row({title, fetchUrl, isLargeRow}) {
     //when user clicks on a poster, the clicked movie is passed into this function
     const handleClick = movie => {
         //if there's a url already open remove the url, thereby hiding the movie
+        console.log(movie)
         if(trailerUrl) setTrailerUrl("");
         else {
             //an npm module, that takes in a name, and goes to youtube and finds a trailer of that name
             //sometimes name is undefined as well
-            movieTrailer(movie?.name || "") 
+            movieTrailer(movie?.original_name || movie?.name  || movie?.original_title || movie?.title) 
                 .then( url => {
-                    console.log(movie.name)
                     //youtube.com/watch?v=V1GqkHLwotk
                     //*url returned from promise is a full youtube url*//
                     //*we need the url param of the full url, to pass it into the trailerId prop of YouTube component*//
@@ -59,7 +59,6 @@ function Row({title, fetchUrl, isLargeRow}) {
                 }).catch(error => console.log((error)))
         }
     }
-    console.log(trailerUrl)
 
     return (
         <div className="row">
@@ -70,14 +69,15 @@ function Row({title, fetchUrl, isLargeRow}) {
             <div className="row__posters">
                 {/*several row posters*/}
                 {movies.map(movie => {
-                    //pull in backdrop/poster based on whether is it the top row(originals)
-                    return (
-                        <img className={`row__poster ${isLargeRow && 'row__posterLarge'}`} 
-                            src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path? movie.backdrop_path : movie.poster_path}`} 
-                            alt={movie.name} key={movie.id}
-                            onClick={() => handleClick(movie)}
-                        />  
-                    )
+                    //pull in backdrop/poster
+                    if(movie.poster_path || movie.backdrop_path)
+                        return (
+                            <img className={`row__poster`} 
+                                src={`${base_url}${movie.poster_path? movie.poster_path : movie.backdrop_path}`} 
+                                alt={movie.name} key={movie.id}
+                                onClick={() => handleClick(movie)}
+                            />  
+                        )
                 })}
             </div>
             

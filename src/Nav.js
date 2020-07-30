@@ -21,12 +21,7 @@ function Nav() {
     return (
         //add nav__black if we scroll passed 100px
         <div className={`nav ${show && 'nav__black'}`}>
-            <img className="nav__logo" alt="Netflix Logo"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1024px-Netflix_2015_logo.svg.png"
-            />
-            <img className="nav__avatar" alt="Netflix Avatar"
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/366be133850498.56ba69ac36858.png"
-            />
+            <h1 className="nav__logo" >Trailerz Hub <span className="nav__logoIcon">📽</span></h1>
         </div>
     )
 }

@@ -8,29 +8,25 @@
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
-    padding: 24px;
+    padding: 24px 24px 24px 0px;
 }
 
 .row__posters::-webkit-scrollbar {
     display: none;
 }
 
+.ob {
+    width: 400px;
+    max-height: 400px;
+}
 .row__poster {
     object-fit: contain;
-    width: 100%;
-    max-height: 200px;
+    width: 400px;
+    max-height: 400px;
     transition: transform 450ms;
     margin-right: 16px;
 }
 
 .row__poster:hover {
-    transform: scale(1.08);
-}
-
-.row__posterLarge {
-    max-height: 300px;
-}
-
-.row__posterLarge:hover {
-    transform: scale(1.09);
+    transform: scale(1.10);
 }

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
 .nav {
     position: fixed;
     top: 0;
@@ -6,6 +9,7 @@
     display: flex;
     justify-content: space-between;
     height: 30px;
+    align-items: center;
     z-index: 1;
 
     /*add transition to anything on navbar*/
@@ -18,14 +22,13 @@
 
 .nav__logo {
     position: fixed;
-    left: 20px;
-    width: 80px;
+    left: 10px;
+    width: 220px;
     object-fit: contain;
+    color: red;
+    font-family: 'Playball', cursive;
 }
 
-.nav__avatar {
-    position: fixed;
-    right: 20px;
-    width: 30px;
-    object-fit: contain;
+.nav__logoIcon {
+    color: white;
 }
