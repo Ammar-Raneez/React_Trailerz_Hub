@@ -63,7 +63,7 @@ function Row({title, fetchUrl, isLargeRow}) {
     return (
         <div className="row">
             {/*title*/}
-            <h2>{title}</h2>
+            <h2 className="row__title">{title}</h2>
 
             {/*container -> posters, each movie posters*/}
             <div className="row__posters">
@@ -72,11 +72,21 @@ function Row({title, fetchUrl, isLargeRow}) {
                     //pull in backdrop/poster
                     if(movie.poster_path || movie.backdrop_path)
                         return (
-                            <img className={`row__poster`} 
-                                src={`${base_url}${movie.poster_path? movie.poster_path : movie.backdrop_path}`} 
-                                alt={movie.name} key={movie.id}
-                                onClick={() => handleClick(movie)}
-                            />  
+                            //overlay effect creation
+                            <div className="row_div"  onClick={() => handleClick(movie)}>
+                                <img className="row__poster" alt={movie.name} key={movie.id}
+                                    src={`${base_url}${movie.poster_path? movie.poster_path : movie.backdrop_path}`} 
+                                />  
+                                <div class="row__overlay">
+                                    <div class="row__overlayText">
+                                        <h2>{movie?.name || movie?.original_name || movie?.title  || movie?.original_title}</h2>
+                                        <br/>
+                                        <p>{movie?.release_date || movie?.first_air_date}</p>
+                                        <br/><br/>
+                                        <p className="row__overlayText__rating">{movie?.vote_average}/10</p>
+                                    </div>
+                                </div>
+                            </div>
                         )
                 })}
             </div>

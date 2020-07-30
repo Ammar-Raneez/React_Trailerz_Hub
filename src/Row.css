@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300&display=swap');
+
 .row {
     margin-left: 16px;
     margin-right: 16px;
     color: white;
+}
+
+.row__title {
+    font-family: 'Oxanium', cursive;
 }
 
 .row__posters {
@@ -15,18 +21,58 @@
     display: none;
 }
 
-.ob {
-    width: 400px;
-    max-height: 400px;
-}
 .row__poster {
     object-fit: contain;
-    width: 400px;
     max-height: 400px;
-    transition: transform 450ms;
-    margin-right: 16px;
 }
 
-.row__poster:hover {
+.row_div {
+    transition: transform 600ms;
+    max-height: 400px;
+    margin-right: 24px;
+}
+
+.row_div:hover {
     transform: scale(1.10);
+    cursor: pointer;
+}
+
+.row_div {
+    position: relative;
+}
+
+.row__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    height: auto;
+    width: 100%;
+    transition: 1s ease;
+    background-color: #000;
+    border: 2px solid red;
+}
+
+.row_div:hover .row__overlay {
+    opacity: 0.8;
+}
+
+.row__overlayText {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    font-family: 'Oxanium', cursive;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.row__overlayText__rating {
+    color: red;
+    font-weight: 800;
 }
