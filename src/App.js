@@ -9,13 +9,10 @@ import Footer from './Footer';
 function App() {
 	return (
 		<div className="app">
-			{/*navbar*/}
 			<Nav />
 
-			{/*banner*/}
 			<Banner />
 
-			{/*all rows*/}
 			<Row title="Trending Now" fetchUrl={requests.fetchTrending} />
 			<Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
 			<Row title="Action" fetchUrl={requests.fetchActionMovies} />
@@ -33,7 +30,6 @@ function App() {
 			<Row title="Science Fiction" fetchUrl={requests.fetchScienceFictions} />
 			<Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
 
-			{/*footer*/}
 			<Footer />
 		</div>
 	);

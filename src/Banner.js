@@ -19,8 +19,6 @@ function Banner() {
                 requests.fetchTrending];
             const request = await axios.get(allMovies[Math.floor(Math.random() * allMovies.length)]);
 
-            //selecting a random movie from the array containing all the movies
-            //if the movie only has a backdrop image, if not, loop till we get a movie with a backdrop
             let result = request.data.results[Math.floor(Math.random() * request.data.results.length)];
             while(result.backdrop_path == null) {
                 result = request.data.results[Math.floor(Math.random() * request.data.results.length)];
@@ -31,10 +29,9 @@ function Banner() {
         fetchData();
     }, [])
 
-    //stack overflow, truncate remaining characters passed length 150
     function truncate(str, n) {
         return str?.length > n ? str.substr(0, n-1) + '...' : str;
-    }   //if length > n, substring till n concatenating '...', else return same string
+    }   
 
     const opts = {
         height: "390",
@@ -58,22 +55,18 @@ function Banner() {
 
 
     return (
-        //header with background image of shown movie //*'?' - similar to regex, if found, use it, if not dont, thereby preventing crashing*//
         <React.Fragment>
             <header className="banner" 
                 style={{backgroundSize: "cover", backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`
                 , backgroundPosition: "center"}}
             >
                 <div className="banner__contents">
-                    {/*title, movies either have a title/ name/ original_name attribute, we use what can be found*/}
                     <h1 className="banner__title">{movie?.title || movie?.original_title || movie?.name || movie?.original_name}</h1>
 
-                    {/*banner button*/}
                     <div className="banner__buttons">
                         <button className="banner__button" onClick={() => handleClick(movie)}>Play</button>
                     </div>
 
-                    {/*description, overview prop that holds description*/}
                     <h1 className="banner__description">{truncate(movie?.overview, 200)}</h1>
                 </div>
 

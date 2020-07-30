@@ -1,7 +1,6 @@
 const API_KEY = "d97af967bc3915f9255583a3db52cc1d";
 
 
-//all requested links
 const requests = {
     fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
     fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,

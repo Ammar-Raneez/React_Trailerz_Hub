@@ -12,7 +12,6 @@
     align-items: center;
     z-index: 1;
 
-    /*add transition to anything on navbar*/
     transition: all 0.5s ease-in;
 }
 
